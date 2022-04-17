@@ -1,4 +1,4 @@
-package com.paolotalks.algorithm.graph;
+package com.paolotalks.exercise.algorithm.graph;
 
 import com.paolotalks.datastructure.graph.UndirectedGraph;
 import com.paolotalks.exception.TestCaseNotImplementedException;

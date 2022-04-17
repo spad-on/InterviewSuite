@@ -1,4 +1,4 @@
-package com.paolotalks.algorithm.sort;
+package com.paolotalks.exercise.algorithm.sort;
 
 public interface Sorter {
 

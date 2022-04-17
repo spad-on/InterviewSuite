@@ -1,6 +1,7 @@
 package com.paolotalks.algorithm.graph;
 
 import com.paolotalks.datastructure.graph.DirectedGraph;
+import com.paolotalks.exercise.algorithm.graph.IsDAG;
 import com.paolotalks.util.PartialTestRunner;
 import org.junit.Test;
 import org.junit.runner.RunWith;

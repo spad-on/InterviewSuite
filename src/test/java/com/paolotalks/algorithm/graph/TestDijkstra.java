@@ -2,6 +2,7 @@ package com.paolotalks.algorithm.graph;
 
 import com.paolotalks.datastructure.graph.Node;
 import com.paolotalks.datastructure.graph.UndirectedWeightedGraph;
+import com.paolotalks.exercise.algorithm.graph.Dijkstra;
 import com.paolotalks.util.PartialTestRunner;
 import org.junit.Test;
 import org.junit.runner.RunWith;

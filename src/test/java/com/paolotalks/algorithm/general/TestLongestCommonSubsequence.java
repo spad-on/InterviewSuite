@@ -1,5 +1,6 @@
 package com.paolotalks.algorithm.general;
 
+import com.paolotalks.exercise.algorithm.general.LongestCommonSubsequence;
 import com.paolotalks.util.PartialTestRunner;
 import org.junit.Test;
 import org.junit.runner.RunWith;

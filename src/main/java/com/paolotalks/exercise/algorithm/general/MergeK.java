@@ -1,4 +1,4 @@
-package com.paolotalks.algorithm.general;
+package com.paolotalks.exercise.algorithm.general;
 
 import com.paolotalks.exception.TestCaseNotImplementedException;
 

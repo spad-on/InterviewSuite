@@ -2,6 +2,7 @@ package com.paolotalks.algorithm.tree;
 
 import com.paolotalks.datastructure.tree.BinaryNode;
 import com.paolotalks.datastructure.tree.TreeNode;
+import com.paolotalks.exercise.algorithm.tree.Depth;
 import com.paolotalks.util.PartialTestRunner;
 import org.junit.Test;
 import org.junit.runner.RunWith;

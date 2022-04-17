@@ -1,4 +1,4 @@
-package com.paolotalks.algorithm.tree;
+package com.paolotalks.exercise.algorithm.tree;
 
 import com.paolotalks.datastructure.tree.BinaryNode;
 import com.paolotalks.datastructure.tree.TreeNode;

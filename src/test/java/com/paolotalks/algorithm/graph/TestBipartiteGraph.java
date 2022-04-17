@@ -3,6 +3,7 @@ package com.paolotalks.algorithm.graph;
 import com.paolotalks.datastructure.graph.Node;
 import com.paolotalks.datastructure.graph.UndirectedGraph;
 import com.paolotalks.exception.GraphNotBipartiteException;
+import com.paolotalks.exercise.algorithm.graph.BipartiteGraph;
 import com.paolotalks.util.PartialTestRunner;
 import org.junit.Test;
 import org.junit.runner.RunWith;

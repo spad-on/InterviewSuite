@@ -3,13 +3,12 @@ package com.paolotalks.algorithm.graph;
 import com.paolotalks.datastructure.graph.DirectedGraph;
 import com.paolotalks.datastructure.graph.Node;
 import com.paolotalks.exception.CyclicGraphException;
+import com.paolotalks.exercise.algorithm.graph.TopologicalSorting;
 import com.paolotalks.util.PartialTestRunner;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
 
 import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertThrows;
