@@ -20,7 +20,7 @@ public class TestMergeK {
     public void testEmpty(){
 
         List<Integer> result = new MergeK().merge(List.of());
-        assertEquals(result, List.of());
+        assertEquals(List.of(), result);
     }
 
     @Test
@@ -29,7 +29,7 @@ public class TestMergeK {
         List<Integer> second = Arrays.asList(2, 4, 6, 8, 10);
 
         List<Integer> result = new MergeK().merge(List.of(first, second));
-        assertEquals(result, List.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
+        assertEquals(List.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10), result);
     }
 
     @Test
@@ -38,7 +38,7 @@ public class TestMergeK {
         List<Integer> second = Arrays.asList(2, 4, 6, 8);
 
         List<Integer> result = new MergeK().merge(List.of(first, second));
-        assertEquals(result, List.of(1, 2, 3, 4, 5, 6, 7, 8, 9));
+        assertEquals(List.of(1, 2, 3, 4, 5, 6, 7, 8, 9), result);
     }
 
     @Test
@@ -54,7 +54,7 @@ public class TestMergeK {
                 .collect(Collectors.toList());
 
         List<Integer> result = new MergeK().merge(List.of(first, second));
-        assertEquals(result, expected);
+        assertEquals(expected, result);
     }
 
     @Test
@@ -71,7 +71,7 @@ public class TestMergeK {
                 .collect(Collectors.toList());
 
         List<Integer> result = new MergeK().merge(List.of(first, second));
-        assertEquals(result, expected);
+        assertEquals(expected, result);
     }
 
 }

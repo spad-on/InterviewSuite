@@ -39,8 +39,8 @@ public class TestBipartiteGraph {
             odds = evens;
             evens = tmp;
         }
-        assertEquals("One partition should have 5 elements", odds.size(), 5);
-        assertEquals("One partition should have 4 elements", evens.size(), 4);
+        assertEquals("One partition should have 5 elements", 5, odds.size());
+        assertEquals("One partition should have 4 elements", 4, evens.size());
         assertTrue(odds.containsAll(Arrays.asList(1, 3, 5, 7, 9)));
         assertTrue(evens.containsAll(Arrays.asList(2, 4, 6, 8)));
     }
@@ -58,8 +58,8 @@ public class TestBipartiteGraph {
             odds = evens;
             evens = tmp;
         }
-        assertEquals("One partition should have 1 element", odds.size(), 1);
-        assertEquals("One partition should have 0 elements", evens.size(), 0);
+        assertEquals("One partition should have 1 element", 1, odds.size());
+        assertEquals("One partition should have 0 elements", 0, evens.size());
         assertTrue(odds.contains(42));
         assertTrue(evens.isEmpty());
     }
