@@ -52,7 +52,7 @@ public class TestMergeK {
                 .sorted()
                 .collect(Collectors.toList());
 
-        List<Integer> result = new MergeK().merge(List.of(first, second));
+        List<Integer> result = new MergeK().merge(List.of(first, second, third, fourth));
         assertEquals(expected, result);
     }
 
@@ -69,7 +69,7 @@ public class TestMergeK {
                 .sorted()
                 .collect(Collectors.toList());
 
-        List<Integer> result = new MergeK().merge(List.of(first, second));
+        List<Integer> result = new MergeK().merge(List.of(first, second, third, fourth, fifth));
         assertEquals(expected, result);
     }
 
