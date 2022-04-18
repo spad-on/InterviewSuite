@@ -7,7 +7,12 @@ get_pom_dir() {
 }
 
 if (( $# < 1 )); then
-  echo "Usage: $0 <test_class> [test_method1]"
+  echo    "============================================"
+  echo    "Usage: $0 <test_class> [test_method1]"
+  echo    "Run list_tests.sh to find a list of all test classes"
+  echo -n "Run list_test_class.sh to find a list of all test methods"
+  echo    " for a specific test class"
+  echo    "============================================"
   exit 1
 fi
 
