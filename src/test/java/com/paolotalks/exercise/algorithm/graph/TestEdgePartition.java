@@ -30,7 +30,7 @@ public class TestEdgePartition {
         graph.addEdge(5, 8);
         graph.addEdge(6, 2);
 
-        EdgePartition.EdgeData edges = new EdgePartition().visit(graph);
+        EdgePartition.EdgeData edges = new EdgePartition().visit(graph.getNode(1), graph);
         // Check tree edges
         Set<Edge> tree = edges.getTree();
         assertEquals("Wrong number of tree edges", 7, tree.size());
@@ -54,12 +54,12 @@ public class TestEdgePartition {
         // Check backwards
         Set<Edge> bwd = edges.getBackward();
         assertEquals("Wrong number of bwd edges", 1, bwd.size());
-        Set<String> strBwd = fwd.stream()
+        Set<String> strBwd = bwd.stream()
                 .map(s -> s.getSource() + "-" + s.getTarget())
                 .collect(Collectors.toSet());
         assertTrue(strBwd.contains("6-2"));
         // Check across
-        Set<Edge> across = edges.getBackward();
+        Set<Edge> across = edges.getAcross();
         assertEquals("Wrong number of across edges", 1, across.size());
         Set<String> strAcross = across.stream()
                 .map(s -> s.getSource() + "-" + s.getTarget())

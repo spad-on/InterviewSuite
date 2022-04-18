@@ -2,9 +2,12 @@ package com.paolotalks.exercise.algorithm.graph;
 
 import com.paolotalks.datastructure.graph.DirectedGraph;
 import com.paolotalks.datastructure.graph.Edge;
+import com.paolotalks.datastructure.graph.Node;
 import com.paolotalks.exception.TestCaseNotImplementedException;
 
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -76,7 +79,7 @@ public class EdgePartition {
      *  according to their definition.
      * Pre-condition: The graph is connected.
      */
-    public EdgeData visit(DirectedGraph graph){
+    public EdgeData visit(Node start, DirectedGraph graph){
         // TODO implement
         throw new TestCaseNotImplementedException();
     }
