@@ -1,8 +1,7 @@
-package com.paolotalks.algorithm.tree;
+package com.paolotalks.exercise.algorithm.tree;
 
 import com.paolotalks.datastructure.tree.BinaryNode;
-import com.paolotalks.exercise.algorithm.tree.BinarySearchTree;
-import com.paolotalks.util.PartialTestRunner;
+import com.paolotalks.exercise.util.PartialTestRunner;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 

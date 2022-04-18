@@ -1,7 +1,6 @@
-package com.paolotalks.algorithm.general;
+package com.paolotalks.exercise.algorithm.general;
 
-import com.paolotalks.exercise.algorithm.general.LongestCommonSubsequence;
-import com.paolotalks.util.PartialTestRunner;
+import com.paolotalks.exercise.util.PartialTestRunner;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 

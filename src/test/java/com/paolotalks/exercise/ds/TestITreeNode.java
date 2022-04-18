@@ -1,8 +1,6 @@
-package com.paolotalks.ds;
+package com.paolotalks.exercise.ds;
 
-import com.paolotalks.exception.TestCaseNotImplementedException;
-import com.paolotalks.exercise.ds.ITreeNode;
-import com.paolotalks.util.PartialTestRunner;
+import com.paolotalks.exercise.util.PartialTestRunner;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -13,7 +11,7 @@ import static org.junit.Assert.assertEquals;
 @RunWith(PartialTestRunner.class)
 public class TestITreeNode extends BaseDSTestCase {
 
-    private static final String CLASS_PATH = "com.paolotalks.exercise.ds.impl.TreeNodeImpl";
+    private static final String CLASS_PATH = PACKAGE_PATH + ".TreeNodeImpl";
 
     protected static ITreeNode createTreeNode(int data){
         Class<?> cls = getImplClass(CLASS_PATH);

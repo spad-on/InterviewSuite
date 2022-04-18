@@ -1,9 +1,6 @@
-package com.paolotalks.ds;
+package com.paolotalks.exercise.ds;
 
-import com.paolotalks.exception.TestCaseNotImplementedException;
-import com.paolotalks.exercise.ds.IGraphEdge;
-import com.paolotalks.exercise.ds.IGraphNode;
-import com.paolotalks.util.PartialTestRunner;
+import com.paolotalks.exercise.util.PartialTestRunner;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -19,7 +16,7 @@ import static org.junit.Assert.assertEquals;
 @RunWith(PartialTestRunner.class)
 public class TestIGraphNode extends BaseDSTestCase {
 
-    private static final String NODE_PATH = "com.paolotalks.exercise.ds.impl.GraphNodeImpl";
+    private static final String NODE_PATH =  PACKAGE_PATH + ".GraphNodeImpl";
 
     protected static IGraphNode createGraphNode(int id){
         Class<?> cls = getImplClass(NODE_PATH);

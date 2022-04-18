@@ -1,4 +1,4 @@
-package com.paolotalks.util;
+package com.paolotalks.exercise.util;
 
 import com.paolotalks.exception.TestCaseNotImplementedException;
 import org.junit.AssumptionViolatedException;

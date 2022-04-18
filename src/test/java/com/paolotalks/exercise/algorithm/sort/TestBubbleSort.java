@@ -1,8 +1,7 @@
-package com.paolotalks.algorithm.sort;
+package com.paolotalks.exercise.algorithm.sort;
 
 
-import com.paolotalks.exercise.algorithm.sort.BubbleSort;
-import com.paolotalks.util.PartialTestRunner;
+import com.paolotalks.exercise.util.PartialTestRunner;
 import org.junit.Before;
 import org.junit.runner.RunWith;
 

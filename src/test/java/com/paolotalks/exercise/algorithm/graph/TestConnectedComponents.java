@@ -1,8 +1,7 @@
-package com.paolotalks.algorithm.graph;
+package com.paolotalks.exercise.algorithm.graph;
 
 import com.paolotalks.datastructure.graph.UndirectedGraph;
-import com.paolotalks.exercise.algorithm.graph.ConnectedComponents;
-import com.paolotalks.util.PartialTestRunner;
+import com.paolotalks.exercise.util.PartialTestRunner;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 

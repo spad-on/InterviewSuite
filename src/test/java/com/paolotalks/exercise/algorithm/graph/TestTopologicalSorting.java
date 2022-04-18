@@ -1,10 +1,9 @@
-package com.paolotalks.algorithm.graph;
+package com.paolotalks.exercise.algorithm.graph;
 
 import com.paolotalks.datastructure.graph.DirectedGraph;
 import com.paolotalks.datastructure.graph.Node;
 import com.paolotalks.exception.CyclicGraphException;
-import com.paolotalks.exercise.algorithm.graph.TopologicalSorting;
-import com.paolotalks.util.PartialTestRunner;
+import com.paolotalks.exercise.util.PartialTestRunner;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
