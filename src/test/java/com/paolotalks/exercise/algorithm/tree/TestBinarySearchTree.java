@@ -49,7 +49,7 @@ public class TestBinarySearchTree {
         assertNotNull(fourteen);
         assertEquals(14, fourteen.getData());
         // check left of right works
-        BinaryNode thirteen = fourteen.getRight();
+        BinaryNode thirteen = fourteen.getLeft();
         assertNotNull(thirteen);
         assertEquals(13, thirteen.getData());
     }

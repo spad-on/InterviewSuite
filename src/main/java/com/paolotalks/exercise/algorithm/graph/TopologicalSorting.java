@@ -20,10 +20,14 @@ public class TopologicalSorting {
     public static final boolean RUN_OPTIONAL_TESTS = false;
 
     /**
-     * Returns the number of connected components in the graph
+     * Returns a topological sort of the current graph.
+     * If RUN_OPTIONAL_TESTS is set to true the algorithm should
+     * check if the graph is indeed acyclic and, if not, it should
+     * throw a {@link CyclicGraphException}.
      * @param graph an {@link DirectedGraph}
-     * @return the number of connected components
+     * @return a topological sort of the current graph
      * Pre-conditions: the graph is not null
+     * Pre-conditions: the graph might NOT be connected
      */
     public List<Node> visit(DirectedGraph graph) {
         //TODO implement

@@ -42,49 +42,4 @@ public class TestIsDAG {
         assertFalse(isDAG);
     }
 
-    @Test
-    public void testDAGForest(){
-        DirectedGraph graph = new DirectedGraph();
-        graph.addEdge(1, 2);
-        graph.addEdge(2, 3);
-        graph.addEdge(2, 9);
-        graph.addEdge(3, 4);
-        graph.addEdge(4, 7);
-        graph.addEdge(5, 6);
-        graph.addEdge(5, 8);
-        graph.addEdge(8, 9);
-
-        graph.addEdge(10, 20);
-        graph.addEdge(20, 30);
-        graph.addEdge(20, 60);
-        graph.addEdge(60, 40);
-        graph.addEdge(40, 50);
-        graph.addEdge(30, 40);
-
-        boolean isDAG = new IsDAG().visit(graph);
-        assertTrue(isDAG);
-    }
-
-    @Test
-    public void testNonDAGForest(){
-        DirectedGraph graph = new DirectedGraph();
-        graph.addEdge(1, 2);
-        graph.addEdge(2, 3);
-        graph.addEdge(2, 9);
-        graph.addEdge(3, 4);
-        graph.addEdge(4, 7);
-        graph.addEdge(5, 6);
-        graph.addEdge(5, 8);
-        graph.addEdge(8, 9);
-
-        graph.addEdge(10, 20);
-        graph.addEdge(20, 30);
-        graph.addEdge(20, 60);
-        graph.addEdge(60, 40);
-        graph.addEdge(40, 20);
-
-        boolean isDAG = new IsDAG().visit(graph);
-        assertFalse(isDAG);
-    }
-
 }

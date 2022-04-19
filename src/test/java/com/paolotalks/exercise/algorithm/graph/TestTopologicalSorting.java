@@ -15,10 +15,6 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 @RunWith(PartialTestRunner.class)
 public class TestTopologicalSorting {
 
-    private enum P{
-        N,Z,P;
-    }
-
     @Test
     public void testSingleComponent(){
         DirectedGraph graph = new DirectedGraph();
@@ -26,17 +22,21 @@ public class TestTopologicalSorting {
         graph.addEdge(2, 4);
         graph.addEdge(3, 4);
         graph.addEdge(3, 5);
+        graph.addEdge(4, 5);
+        graph.addEdge(5, 6);
         graph.addEdge(3, 6);
         graph.addEdge(6, 7);
 
         List<Node> topologicalSort = new TopologicalSorting().visit(graph);
+        System.out.println(topologicalSort);
         for (Node node : graph.nodeSet()){
             assertTrue("Node '" + node + "' not found in order", topologicalSort.contains(node));
         }
         for (int i = 1; i < 7; i++){
             for (int j = i+1; j <= 7; j++){
                 if (i == 1 && j == 2) continue; // those two can be inverted
-                assertTrue(isBefore(graph.getNode(i), graph.getNode(j), topologicalSort));
+                assertTrue("Node " + i + " should be before node " + j,
+                        isBefore(graph.getNode(i), graph.getNode(j), topologicalSort));
             }
         }
     }
@@ -48,6 +48,8 @@ public class TestTopologicalSorting {
         graph.addEdge(2, 4);
         graph.addEdge(3, 4);
         graph.addEdge(3, 5);
+        graph.addEdge(4, 5);
+        graph.addEdge(5, 6);
         graph.addEdge(3, 6);
         graph.addEdge(6, 7);
         //
