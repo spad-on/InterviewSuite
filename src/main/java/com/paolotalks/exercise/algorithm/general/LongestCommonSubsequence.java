@@ -1,6 +1,6 @@
 package com.paolotalks.exercise.algorithm.general;
 
-import com.paolotalks.exception.TestCaseNotImplementedException;
+import com.paolotalks.utils.MathUtils;
 
 import java.util.Optional;
 
@@ -59,6 +59,36 @@ public class LongestCommonSubsequence {
      * Pre-condition: strings can contain any type of characters
      */
     public Solution find(String first, String second) {
-        throw new TestCaseNotImplementedException();
+        int n = first.length();
+        int m = second.length();
+
+        int[][] T = new int[n+1][m+1];
+        for (int i = 1; i <= n; i++){
+            for (int j = 1; j <= m; j++){
+                if (first.charAt(i-1) == second.charAt(j-1)){
+                    T[i][j] = T[i-1][j-1] + 1;
+                } else {
+                    T[i][j] = MathUtils.max(T[i][j-1], T[i-1][j]);
+                }
+            }
+        }
+        String sol = findSolution(T, first, second);
+        return new Solution(T[n][m], sol);
+    }
+
+    private String findSolution(int[][] T, String first, String second){
+        int ni = first.length(), nj = second.length();
+        StringBuilder sb = new StringBuilder();
+        while (ni > 0 && nj > 0) {
+            if (first.charAt(ni-1) == second.charAt(nj-1)){
+                sb.append(first.charAt(ni-1));
+                ni--; nj--;
+            } else if (T[ni][nj] == T[ni-1][nj]){
+                ni--;
+            } else {
+                nj--;
+            }
+        }
+        return sb.reverse().toString();
     }
 }

@@ -1,7 +1,5 @@
 package com.paolotalks.exercise.algorithm.general;
 
-import com.paolotalks.exception.TestCaseNotImplementedException;
-
 import java.util.Optional;
 import java.util.stream.IntStream;
 
@@ -55,8 +53,27 @@ public class LongestPalindromeSubstring {
      * Pre-condition: strings can contain any type of characters
      */
     public Solution find(String input) {
-        // TODO implement
-        throw new TestCaseNotImplementedException();
+        input = input.toLowerCase();
+        int n = input.length();
+        boolean[][] T = new boolean[n+1][n+1];
+        IntStream.range(0, n+1).forEach(s -> T[s][s] = true);
+        int max = 0;
+        int start = 0, end = 0;
+        for (int k = 1; k <= n; k++){
+            for (int i = 0; i < n - k; i++){
+                int j = i + k;
+                if (input.charAt(i) == input.charAt(j)) {
+                    T[i][j] = k == 1 || T[i + 1][j - 1];
+                } else {
+                    T[i][j] = false;
+                }
+                if (T[i][j] && k > max) {
+                    max = k + 1;
+                    start = i; end = j + 1;
+                }
+            }
+        }
+        return new Solution(max, input.substring(start, end));
     }
 
 }

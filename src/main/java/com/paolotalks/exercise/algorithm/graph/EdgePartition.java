@@ -3,7 +3,6 @@ package com.paolotalks.exercise.algorithm.graph;
 import com.paolotalks.datastructure.graph.DirectedGraph;
 import com.paolotalks.datastructure.graph.Edge;
 import com.paolotalks.datastructure.graph.Node;
-import com.paolotalks.exception.TestCaseNotImplementedException;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -80,8 +79,31 @@ public class EdgePartition {
      * Pre-condition: The graph is connected.
      */
     public EdgeData visit(Node start, DirectedGraph graph){
-        // TODO implement
-        throw new TestCaseNotImplementedException();
+        Map<Node, Integer> visited = new HashMap<>();
+        EdgeData data = new EdgeData();
+        visit(start, graph, visited, data);
+        return data;
+    }
+
+    private void visit(Node node, DirectedGraph graph, Map<Node, Integer> visited, EdgeData data){
+        if (node == null) return;
+        int currentID = visited.size() + 1;
+        visited.put(node, -currentID);
+        for (Edge edge : graph.getEdges(node)){
+            Node next = edge.getTarget();
+            Integer visitID = visited.get(next);
+            if (visitID == null){
+                data.addTreeEdge(edge);
+                visit(next, graph, visited, data);
+            } else if (visitID < 0){
+                data.addBackwardEdge(edge);
+            } else if (visitID > currentID){
+                data.addForwardEdge(edge);
+            } else {
+                data.addAcrossEdge(edge);
+            }
+        }
+        visited.put(node, currentID);
     }
 
 }

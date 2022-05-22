@@ -15,22 +15,53 @@ import com.paolotalks.exception.TestCaseNotImplementedException;
  */
 public class BinarySearchTree implements Tree<BinaryNode> {
 
+    private BinaryNode root;
+
+    public BinarySearchTree(){
+    }
+
     @Override
     public void addNode(int data) {
-        // TODO implement
-        throw new TestCaseNotImplementedException();
+        if (root == null){
+            root = new BinaryNode(data);
+        } else {
+            insertInto(root, data);
+        }
+    }
+
+    private void insertInto(BinaryNode node, int data){
+        if (data <= node.getData()){
+            if (node.getLeft() == null){
+                node.setLeft(new BinaryNode(data));
+            } else {
+                insertInto(node.getLeft(), data);
+            }
+        } else {
+            if (node.getRight() == null){
+                node.setRight(new BinaryNode(data));
+            } else {
+                insertInto(node.getRight(), data);
+            }
+        }
     }
 
     @Override
     public boolean contains(int data) {
-        // TODO implement
-        throw new TestCaseNotImplementedException();
+        BinaryNode node = root;
+        while (node != null){
+            if (node.getData() == data) return true;
+            else if (node.getData() < data){
+                node = node.getLeft();
+            } else {
+                node = node.getRight();
+            }
+        }
+        return false;
     }
 
     @Override
     public BinaryNode getRoot() {
-        // TODO implement
-        throw new TestCaseNotImplementedException();
+        return root;
     }
 
 }

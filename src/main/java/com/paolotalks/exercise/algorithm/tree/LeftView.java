@@ -2,7 +2,9 @@ package com.paolotalks.exercise.algorithm.tree;
 
 import com.paolotalks.datastructure.tree.BinaryNode;
 import com.paolotalks.exception.TestCaseNotImplementedException;
+import com.paolotalks.utils.MathUtils;
 
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -30,6 +32,21 @@ public class LeftView {
      * Pre-condition: root is not null
      */
     public List<Integer> visit(BinaryNode root) {
-        throw new TestCaseNotImplementedException();
+        List<Integer> view = new LinkedList<>();
+        visit(root, 1, 0, view);
+        return view;
+    }
+
+    private int visit(BinaryNode node, int depth, int max, List<Integer> result){
+        if (node == null) return max;
+        if (max < depth){
+            max = depth;
+            result.add(node.getData());
+        }
+        int left = visit(node.getLeft(), depth + 1, max, result);
+        max = MathUtils.max(left, max);
+        int right = visit(node.getRight(), depth + 1, max, result);
+        max = MathUtils.max(right, max);
+        return max;
     }
 }

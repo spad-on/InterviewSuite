@@ -1,7 +1,9 @@
 package com.paolotalks.exercise.algorithm.graph;
 
+import com.paolotalks.datastructure.graph.Edge;
 import com.paolotalks.datastructure.graph.Node;
 import com.paolotalks.datastructure.graph.UndirectedGraph;
+import com.paolotalks.exception.GraphNotBipartiteException;
 import com.paolotalks.exception.TestCaseNotImplementedException;
 
 import java.util.HashSet;
@@ -17,7 +19,7 @@ public class BipartiteGraph {
     /**
      * Controls whether to run the optional tests.
      */
-    public static final boolean RUN_OPTIONAL_TESTS = false;
+    public static final boolean RUN_OPTIONAL_TESTS = true;
 
     /**
      * Represents the partition of a bipartite graph.
@@ -55,8 +57,43 @@ public class BipartiteGraph {
      * Pre-conditions: the graph is connected.
      */
     public Partition visit(UndirectedGraph graph){
-        // TODO implement
-        throw new TestCaseNotImplementedException();
+        Partition partition = new Partition();
+        Node node = graph.nodes().findFirst().orElse(null);
+        visit(node, graph, partition, true);
+        return partition;
+    }
+
+    private void visit(Node node, UndirectedGraph graph, Partition partition, boolean even){
+        if (node == null) return;
+        if (even){
+            partition.addEven(node);
+        } else{
+            partition.addOdd(node);
+        }
+
+        for (Edge edge : graph.getEdges(node)){
+            Node target = edge.getTarget();
+            if (even && isEven(target, partition) ||
+                !even && isOdd(target, partition)){
+                throw new GraphNotBipartiteException();
+            }
+            if (!visited(target, partition)){
+                visit(target, graph, partition, !even);
+            }
+        }
+
+    }
+
+    private boolean isEven(Node node, Partition p){
+        return p.getEven().contains(node);
+    }
+
+    private boolean isOdd(Node node, Partition p){
+        return p.getOdd().contains(node);
+    }
+
+    private boolean visited(Node node, Partition p){
+        return isEven(node, p) || isOdd(node, p);
     }
 
 

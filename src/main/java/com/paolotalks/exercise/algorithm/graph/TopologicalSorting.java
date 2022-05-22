@@ -1,11 +1,11 @@
 package com.paolotalks.exercise.algorithm.graph;
 
 import com.paolotalks.datastructure.graph.DirectedGraph;
+import com.paolotalks.datastructure.graph.Edge;
 import com.paolotalks.datastructure.graph.Node;
 import com.paolotalks.exception.CyclicGraphException;
-import com.paolotalks.exception.TestCaseNotImplementedException;
 
-import java.util.List;
+import java.util.*;
 
 /**
  * Exercise:
@@ -17,7 +17,7 @@ public class TopologicalSorting {
     /**
      * Controls whether to run the optional tests.
      */
-    public static final boolean RUN_OPTIONAL_TESTS = false;
+    public static final boolean RUN_OPTIONAL_TESTS = true;
 
     /**
      * Returns a topological sort of the current graph.
@@ -30,7 +30,28 @@ public class TopologicalSorting {
      * Pre-conditions: the graph might NOT be connected
      */
     public List<Node> visit(DirectedGraph graph) {
-        //TODO implement
-        throw new TestCaseNotImplementedException();
+        LinkedList<Node> order = new LinkedList<>();
+        Map<Node, Boolean> visited = new HashMap<>();
+        for (Node node : graph.nodeSet()){
+            if (visited.containsKey(node)) continue;
+            visit(node, graph, visited, order);
+        }
+        return order;
+    }
+
+    private void visit(Node node, DirectedGraph graph, Map<Node, Boolean> visited, Deque<Node> result){
+        if (node == null) return;
+        visited.put(node, true);
+
+        for (Edge e : graph.getEdges(node)){
+            Node next = e.getTarget();
+            if (!visited.containsKey(next)){
+                visit(next, graph, visited, result);
+            } else if (visited.get(next)){
+                throw new CyclicGraphException();
+            }
+        }
+        result.addFirst(node);
+        visited.put(node, false);
     }
 }

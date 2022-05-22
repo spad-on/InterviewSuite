@@ -3,6 +3,7 @@ package com.paolotalks.exercise.algorithm.tree;
 import com.paolotalks.datastructure.tree.BinaryNode;
 import com.paolotalks.datastructure.tree.TreeNode;
 import com.paolotalks.exception.TestCaseNotImplementedException;
+import com.paolotalks.utils.MathUtils;
 
 /**
  * Exercise:
@@ -19,7 +20,14 @@ public class Depth {
      * Pre-condition: The tree is not null.
      */
     public int visit(BinaryNode root){
-        throw new TestCaseNotImplementedException();
+        return visitInternal(root);
+    }
+
+    private int visitInternal(BinaryNode node){
+        if (node == null) return -1;
+        int left = visitInternal(node.getLeft());
+        int right = visitInternal(node.getRight());
+        return 1 + MathUtils.max(left, right);
     }
 
     /**
@@ -29,6 +37,13 @@ public class Depth {
      * Pre-condition: The tree is not null.
      */
     public int visit(TreeNode root){
-        throw new TestCaseNotImplementedException();
+        return visitInternal(root);
+    }
+
+    private int visitInternal(TreeNode node){
+        if (node == null) return 0;
+        int maxRecurse = node.getChildren().stream()
+                .mapToInt(this::visitInternal).max().orElse(-1);
+        return 1 + maxRecurse;
     }
 }

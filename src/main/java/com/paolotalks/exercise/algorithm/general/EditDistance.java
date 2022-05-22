@@ -1,12 +1,8 @@
 package com.paolotalks.exercise.algorithm.general;
 
-import com.paolotalks.exception.TestCaseNotImplementedException;
-
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Objects;
-import java.util.Optional;
 import java.util.stream.IntStream;
+
+import static com.paolotalks.utils.MathUtils.min;
 
 /**
  * Exercise:
@@ -36,8 +32,24 @@ public class EditDistance {
      * Pre-condition: strings can contain any type of characters
      */
     public int editDistance(String first, String second) {
-        // TODO implement
-        throw new TestCaseNotImplementedException();
+        first = first.toLowerCase();
+        second = second.toLowerCase();
+        int n = first.length();
+        int m = second.length();
+        int[][] T = new int[n+1][m+1];
+        IntStream.range(0, n+1).forEach(s -> T[s][0] = s);
+        IntStream.range(0, m+1).forEach(s -> T[0][s] = s);
+        for (int i = 1; i <= n; i++){
+            for (int j = 1; j <=m; j++){
+                if (first.charAt(i-1) != second.charAt(j-1)){
+                    T[i][j] = 1 + min(T[i-1][j-1], T[i][j-1], T[i-1][j]);
+                } else {
+                    T[i][j] = T[i-1][j-1];
+
+                }
+            }
+        }
+        return T[n][m];
     }
 
 }
