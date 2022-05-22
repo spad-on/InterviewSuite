@@ -46,7 +46,7 @@ public class TestLeftView {
         BinaryNode root = four;
 
         List<Integer> leftView = new LeftView().visit(root);
-        assertEquals(leftView, Arrays.asList(4, 2, 5, 8, 10));
+        assertEquals(Arrays.asList(4, 2, 5, 8, 10), leftView);
     }
 
 
@@ -70,13 +70,13 @@ public class TestLeftView {
         BinaryNode nine = new BinaryNode(9);
         nine.setRight(fourtytwo);
         BinaryNode eight = new BinaryNode(8);
-        eight.setRight(eight);
+        eight.setRight(nine);
         BinaryNode one = new BinaryNode(1);
-        eight.setRight(one);
+        one.setRight(eight);
 
         BinaryNode root = one;
         List<Integer> leftView = new LeftView().visit(root);
-        assertEquals(leftView, Arrays.asList(1, 8, 9, 42, 51));
+        assertEquals(Arrays.asList(1, 8, 9, 42, 51), leftView);
     }
 
     @Test
@@ -84,7 +84,7 @@ public class TestLeftView {
         // build tree
         BinaryNode root = new BinaryNode(100);
         List<Integer> leftView = new LeftView().visit(root);
-        assertEquals(leftView, Arrays.asList(100));
+        assertEquals(Arrays.asList(100), leftView);
     }
 
 }
