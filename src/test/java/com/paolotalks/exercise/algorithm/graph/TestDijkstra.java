@@ -39,7 +39,7 @@ public class TestDijkstra {
     private void checkNodeDistance(int nodeId, int expected, UndirectedWeightedGraph graph, Map<Node, Integer> distance){
         Node node = graph.getNode(nodeId);
         assertNotNull("Null node with id " + nodeId, node);
-        assertNotNull(graph.getNode(2));
+        assertNotNull(node);
         Integer actual = distance.get(node);
         assertNotNull(actual);
         // check distances match
